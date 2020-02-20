@@ -1,0 +1,24 @@
+version: '3'
+services:
+  server:
+    build: ./docker_conf
+    container_name: php_nginx_makseli
+    restart: on-failure
+    networks:
+      net:
+        ipv4_address: 172.28.1.1
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - './docker_conf/nginx_site_conf/:/etc/nginx/sites-enabled/'
+      - './docker_conf/php-fpm.conf:/etc/php/7.4/fpm/php-fpm.conf'
+      - './docker_conf/supervisord.conf:/etc/supervisor/supervisord.conf'
+      - './app_src/:/var/www/html/'
+#      - './logs/:/var/log/nginx/'
+networks:
+  net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
