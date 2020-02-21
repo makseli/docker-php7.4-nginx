@@ -44,7 +44,7 @@ ADD . /var/www/html
 RUN chown -R php.staff /var/www/html
 
 #external file
-ADD ./docker-run.sh /docker-run.sh
+ADD docker-run.sh /docker-run.sh
 RUN chmod 755 /docker-run.sh
 RUN /docker-run.sh
 
