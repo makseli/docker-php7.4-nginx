@@ -29,11 +29,7 @@ RUN sed -i "s/^\(memory_limit\(\s*\)\?=\).*/\1 256M/" /etc/php/7.4/fpm/php.ini
 RUN sed -i "s/^\(short_open_tag\(\s*\)\?=\).*/\1 On/" /etc/php/7.4/fpm/php.ini
 RUN sed -i "s/^\(short_open_tag\(\s*\)\?=\).*/\1 On/" /etc/php/7.4/fpm/php.ini
 
-
-RUN echo -e "; priority=20\nextension=pdo_sqlite3.so" > /etc/php/7.4/mods-available/pdo_sqlite3.ini
-RUN echo -e "; priority=20\nextension=pdo_sqlsrv.so" > /etc/php/7.4/mods-available/pdo_sqlsrv.ini
-
-RUN phpenmod -v 7.4 -s ALL mbstring intl pdo_mysql redis memcache gd curl xml xsl mongodb sqlsrv pdo_sqlsrv zip pdo_pgsql pdo_sqlite3
+RUN phpenmod -v 7.4 -s ALL mbstring intl pdo_mysql redis memcache gd curl xml xsl mongodb zip pdo_pgsql pdo_sqlite
 RUN apt-get -y install supervisor nginx
 RUN apt-get -y update && apt-get -y dist-upgrade --force-yes
 
