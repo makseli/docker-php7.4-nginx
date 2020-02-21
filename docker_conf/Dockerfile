@@ -42,5 +42,11 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN rm -rf /var/www/html
 ADD . /var/www/html
 RUN chown -R php.staff /var/www/html
+
+#external file
+ADD ./docker-run.sh /docker-run.sh
+RUN chmod 755 /docker-run.sh
+RUN /docker-run.sh
+
 EXPOSE 9000 80 443
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
