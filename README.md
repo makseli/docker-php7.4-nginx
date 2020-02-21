@@ -1,6 +1,6 @@
 TODO
 
-1. write TODO :)
+1. write README :)
 2. hub.docker push [ OK ] -> https://hub.docker.com/r/makseli/php74-nginx
 3. Postgresql container add
 4. Mysql container add
