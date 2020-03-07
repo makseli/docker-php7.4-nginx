@@ -45,4 +45,4 @@ RUN chmod 755 /docker-run.sh
 RUN /docker-run.sh
 
 EXPOSE 9000 80 443
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+#CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]

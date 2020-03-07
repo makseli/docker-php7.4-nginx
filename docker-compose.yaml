@@ -11,9 +11,9 @@ services:
       - '80:80'
       - '443:443'
     volumes:
-      - './docker_conf/nginx_site_conf/:/etc/nginx/sites-enabled/'
+      - './docker_conf/nginx/:/etc/nginx/sites-enabled/'
       - './docker_conf/php-fpm.conf:/etc/php/7.4/fpm/php-fpm.conf'
-      - './docker_conf/supervisord.conf:/etc/supervisor/supervisord.conf'
+#      - './docker_conf/supervisord.conf:/etc/supervisor/supervisord.conf'
       - './app_src/:/var/www/html/'
 #      - './logs/:/var/log/nginx/'
 networks:
